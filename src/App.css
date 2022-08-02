@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+:root{
+    --purple: #6f42c1;
+    --indigo: #6610f2;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav{
+    background-color: var(--indigo);
+    padding: .5rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.logo{
+    width: 13rem;
+    height: 4rem;
+    margin-left: 3rem;
 }
-
-.App-link {
-  color: #61dafb;
+.nav-ul{
+    list-style: none;
+    display: flex;
+    margin-right: 2rem;
+    margin-top: 1rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-item{
+    color: #fff;
+    font-size: 1.1rem;
+    margin-left: 2rem;
+}
+.nav-item .nav-link{
+    text-decoration: none;
+    color: #fff;
+}
+.nav-item .nav-link:hover{
+    color: var(--yellow);
+}
+.read-more-button{
+    width: 30%;
+}
+.carousel-title{
+    color: var(--indigo);
+    font-size: 3rem;
+    font-weight: bold;
+}
+.carousel-info{
+    font-size: 1.2rem;
+}
+.carousel{
+    /* height: 100vh; */
+}
+.product-title{
+    font-size: 2rem;
+}
+.card-img{
+    width: 20%;
+    height: 18rem;
+    background-color: rgba(128, 128, 128, 0.078);
+}
+.cart-title{
+    font-size: 1.2rem;
+}
+.card-price{
+    font-size: 1.2rem;
+}
+.card-point{
+    font-size: 1.2rem;
+}
+.overlay{
+    position: absolute; 
+    transition: 0.5s ease; 
+    height: 18rem; 
+    width: 95%; 
+    top: 0; 
+    background-color: rgba(128, 128, 128, 0.26);
+    display: none;
+}
+.card:hover .overlay { 
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.overlay-button{
+    background-color: var(--indigo);
+    border: none;
+    color: white;
+    padding: .8rem 2.5rem;
+}
+.overlay-button:hover{
+    background-color: var(--yellow);
+}
+.basket-img{
+    width: 10%;
 }
