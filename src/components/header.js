@@ -1,14 +1,19 @@
 import { useBasket } from '../context/basketContext';
 import logo from '../minics-logo.png';
+import 'font-awesome/css/font-awesome.min.css';
+import { useNavigate } from "react-router-dom";
+
 function Header() {
 
-    const { basket,setBasket } = useBasket();
+    const navigate = useNavigate();
+
+    const { basket, setBasket } = useBasket();
 
     const deleteBasket = (ix) => {
         let newBasket = basket;
         if (newBasket[ix].count === 1) {
-            newBasket.splice(ix,1);
-        }else{
+            newBasket.splice(ix, 1);
+        } else {
             newBasket[ix].count = (newBasket[ix].count) - 1
         }
 
@@ -17,7 +22,7 @@ function Header() {
 
     return (<>
 
-        <div className="container-fluid nav position-fixed top-0 ">
+        <div className="container-fluid nav position-fixed top-0">
             <img className='logo' src={logo} />
             <ul className="nav-ul">
                 <li className="nav-item"><a className="nav-link" href="#/">Home</a></li>
@@ -37,7 +42,7 @@ function Header() {
                         }
                         <li><hr className="dropdown-divider" /></li>
                         <li><a className="dropdown-item" href="#/">Toplam - {basket.reduce((acc, product) => acc + (product.price * product.count), 0)} TL</a></li>
-                        <li><button className='btn btn-warning w-100'>Sepete Git</button></li>
+                        <li><button onClick={()=>navigate('/basket')} className='btn btn-warning w-100'>Sepete Git</button></li>
                     </ul>
                 </div></li>
             </ul>

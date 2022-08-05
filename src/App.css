@@ -11,7 +11,7 @@
 }
 .nav{
     background-color: var(--indigo);
-    padding: .5rem 0rem;
+    padding: 0rem 0rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -97,4 +97,15 @@
 }
 .basket-img{
     width: 10%;
+}
+.basket-title{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.basket-card-img{
+    width: 10%;
+}
+.card-product-name{
+    font-size: 1.2rem;
+    font-weight: bold;
 }
