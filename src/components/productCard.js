@@ -25,7 +25,7 @@ function ProductCard({ product }) {
                 <button onClick={addBasket} type="button" className="overlay-button">Sepete Ekle</button>
             </div>
             <div className="card-img d-flex justify-content-center align-items-center">
-                <img className="w-50 h-75" src={imgUrl} />
+                <img className="product-img" src={imgUrl} />
             </div>
             <p className="cart-title fw-bold mt-2">{name}</p>
             <div className="d-flex justify-content-between">

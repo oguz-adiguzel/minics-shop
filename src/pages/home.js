@@ -12,72 +12,92 @@ function Home() {
             name: 'Canon EOS 550D',
             imgUrl: 'https://html.design/demo/minics/images/p1.png',
             price: 7849,
-            point: '9'
+            point: '9',
+            seller:'Minics'
         },
         {
             id: 2,
             name: 'Rampage Sg-R707',
             imgUrl: 'https://html.design/demo/minics/images/p2.png',
             price: 325,
-            point: '8'
+            point: '8',
+            seller:'TeknoStore'
         },
         {
             id: 3,
             name: 'Corby Cx015 Wifi Kameralı Drone',
             imgUrl: 'https://html.design/demo/minics/images/p3.png',
             price: 1798,
-            point: '7.8'
+            point: '7.8',
+            seller:'TekNo'
         },
         {
             id: 4,
             name: 'Canon EF 50mm f/1.8 II Objektif',
             imgUrl: 'https://html.design/demo/minics/images/p4.png',
             price: 2100,
-            point: '9.2'
+            point: '9.2',
+            seller:'Bimeks'
+
         },
         {
             id: 5,
             name: 'Focal Shape 65 Stüdyo Monitörü',
             imgUrl: 'https://www.zuhalmuzik.com/images/product/ALPHA%2080_1.png',
             price: 14757,
-            point: '9.5'
+            point: '9.5',
+            seller:'Teknosa'
+
         },
         {
             id: 6,
             name: 'Philips SPL9405 USB PS3/PC',
             imgUrl: 'https://html.design/demo/minics/images/p6.png',
             price: 139,
-            point: '8'
+            point: '8',
+            seller:'Media Markt'
+
         },
         {
             id: 7,
             name: 'Dji Phantom 4 Pro V2.0',
             imgUrl: 'https://html.design/demo/minics/images/p7.png',
             price: 107959,
-            point: '8'
+            point: '8',
+            seller:'EasyCep'
+
         },
         {
             id: 8,
             name: 'Nikon D3200 18-55mm KİT',
             imgUrl: 'https://html.design/demo/minics/images/p8.png',
             price: 4507,
-            point: '8.3'
+            point: '8.3',
+            seller:'Migros'
+
         },
         {
             id: 9,
             name: 'Trust 17003 Exıs Full Hd',
             imgUrl: 'https://html.design/demo/minics/images/p9.png',
             price: 135,
-            point: '7.8'
+            point: '7.8',
+            seller:'Hepsi Burada'
+
         }
     ]
 
 
 
     return (<>
+    
         <Header />
-        
         <div className="container carousel mt-5 py-5">
+        <div className="row">
+            <div className="col-12">
+                <p className="text-center text-danger blink-1">10000 TL ve Üzeri Alışverişinize %10 İndirim</p>
+            </div>
+        </div>
             <div className="row mt-5">
                 <div className="col-sm d-flex flex-column justify-content-center carousel">
                     <h4 className="carousel-title">Welcome to our shop</h4>
