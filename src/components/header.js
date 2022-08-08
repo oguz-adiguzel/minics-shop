@@ -23,7 +23,7 @@ function Header() {
     return (<>
 
         <div className="container-fluid nav position-fixed top-0">
-            <img className='logo' src={logo} />
+            <img onClick={()=>navigate("/")} className='logo' src={logo} />
             <ul className="nav-ul">
                 <li className="nav-item"><a className="nav-link" href="#/">Home</a></li>
                 <li className="nav-item"><a className="nav-link" href="#/">About</a></li>

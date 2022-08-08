@@ -22,6 +22,9 @@
     height: 4rem;
     margin-left: 3rem;
 }
+.logo:hover{
+    cursor: pointer;
+}
 .nav-ul{
     list-style: none;
     display: flex;
@@ -108,4 +111,22 @@
 .card-product-name{
     font-size: 1.2rem;
     font-weight: bold;
+}
+.basket-total-title{
+    font-size: 1.1rem;
+    color: var(--orange);
+}
+.basket-total{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.basket-button{
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: .8rem 1rem;
+}
+.basket-button:hover{
+    background-color: #d96c12;
 }
