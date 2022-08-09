@@ -52,16 +52,16 @@ function Basket() {
                     <BasketCard />
 
                 </div>
-                <div className="col-2 border border-2 rounded-4 p-3 h-75">
-                    <p className="basket-total-title">SEÇİLEN ÜRÜNLER ({basket.reduce((acc, item) => acc + (item.count), 0)})</p>
-                    <p className="basket-total">{total} TL</p>
+                <div className="col-2 border border-2 rounded-4 p-3 h-75 d-flex flex-column align-items-center">
+                    <p className="basket-total-title align-self-start">SEÇİLEN ÜRÜNLER ({basket.reduce((acc, item) => acc + (item.count), 0)})</p>
+                    <p className="basket-total align-self-start">{total} TL</p>
                     {
                         discount1 && <p className="text-success">%10 indirim uygulandı</p>
                     }
                     <button onClick={complete} className="basket-button mb-5">Alışverişi Tamamla</button>
                     {
                         basket.map((item, index) => (
-                            <p key={index}>{item.name}</p>
+                            <p className="align-self-start" key={index}>{item.name}</p>
                         ))
                     }
                 </div>
