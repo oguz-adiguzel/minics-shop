@@ -52,7 +52,7 @@ function Basket() {
                     <BasketCard />
 
                 </div>
-                <div className="col-2 border border-2 rounded-4 p-3 h-75 d-flex flex-column align-items-center">
+                <div className="col-2 border border-2 rounded-4 py-3 h-75 d-flex flex-column align-items-center">
                     <p className="basket-total-title align-self-start">SEÇİLEN ÜRÜNLER ({basket.reduce((acc, item) => acc + (item.count), 0)})</p>
                     <p className="basket-total align-self-start">{total} TL</p>
                     {
