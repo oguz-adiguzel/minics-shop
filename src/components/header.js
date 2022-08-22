@@ -47,7 +47,7 @@ function Header() {
                         }
                         <li><hr className="dropdown-divider" /></li>
                         <li><a className="dropdown-item" href="#/">Toplam - {basket.reduce((acc, product) => acc + (product.price * product.count), 0)} TL</a></li>
-                        <li className='d-flex justify-content-center'><button onClick={() => navigate('/basket')} className='btn btn-warning w-25 me-1'>Sepete Git</button><button onClick={deleteAllBasket} className='btn btn-danger w-25 ms-1'>Sepeti Boşalt</button></li>
+                        <li className='d-flex justify-content-center'><button onClick={() => navigate('/basket')} className='btn btn-warning me-1'>Sepete Git</button><button onClick={deleteAllBasket} className='btn btn-danger ms-1'>Sepeti Boşalt</button></li>
                     </ul>
                 </div></li>
             </ul>
