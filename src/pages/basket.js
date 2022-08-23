@@ -69,11 +69,16 @@ function Basket() {
 
         <div className="container">
             <div className="row">
-                <div className="col-10">
+                {basket.length === 0 && <div className="col-sm-12 d-flex flex-column align-items-center py-5">
+                    <p className="text-center  fs-3">Sepetin şuan boş</p>
+                    <p className="text-center w-50">Sepetini Minics'in fırsatlarla dolu dünyasından doldurmak için
+                        aşağıdaki ürünleri incelemeye başlayabilirsin.</p>
+                </div>}
+                <div className="col-sm-10">
                     <BasketCard />
 
                 </div>
-                <div className="col-2 border border-2 rounded-4 py-3 h-75 ">
+                {basket.length > 0 && <div className="col-sm-2 border border-2 rounded-4 py-3 h-75 ">
                     <p className="basket-total-title ">SEÇİLEN ÜRÜNLER ({basket.reduce((acc, item) => acc + (item.count), 0)})</p>
                     <p className="basket-total ">{total} TL</p>
                     {
@@ -86,11 +91,12 @@ function Basket() {
                         ))
                     }
                 </div>
+                }
             </div>
         </div>
 
         <div className="row d-flex justify-content-center">
-        {basket.length === 0 && <h5 className="text-center fs-3 my-5">Sizin İçin Seçtiklerimiz</h5>}
+            {basket.length === 0 && <h5 className="text-center fw-bold fs-2 my-5">Sizin İçin Seçtiklerimiz</h5>}
             {basket.length === 0 && recommendedProducts.map((item, index) => (
                 <div key={index} className="col-sm-2 border-0 card mt-3 mb-5">
                     <div className="overlay ">

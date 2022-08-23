@@ -88,7 +88,7 @@ function Home() {
             imgUrl: 'https://html.design/demo/minics/images/p9.png',
             price: 135,
             point: '7.8',
-            seller: 'Hepsi Burada'
+            seller: 'Hepsiburada'
 
         }
     ]
