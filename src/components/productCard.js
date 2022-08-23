@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 function ProductCard({ product }) {
     const { id, name, imgUrl, price, point } = product;
     const { basket, setBasket } = useBasket();
-
     const addBasket = () => {
         let someProduct = basket.find(item => {
             return item.id === id

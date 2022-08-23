@@ -3,14 +3,12 @@ import cargo from '../cargo.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function BasketCard() {
-
+function BasketCard({catchId}) {
     const { basket, setBasket } = useBasket();
-
     const count = (id) => {
         setTimeout(() => {
             let someProduct = basket.find(item => {
-                return item.id === id
+                return item.id === id || catchId
             })
 
             if (someProduct) {
@@ -18,30 +16,67 @@ function BasketCard() {
                     return item.id === someProduct.id ? { ...item, count: item.count + 1 } : item
                 })
                 setBasket([...newBasket]);
+                toast.success('Ürün eklendi', {
+                    position: "top-right",
+                    autoClose: 500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             }
         }, 350);
 
     }
-
     const deleteCount = (ix) => {
         setTimeout(() => {
             let newBasket = basket;
             if (newBasket[ix].count === 1) {
                 newBasket.splice(ix, 1);
+                toast.error('Ürün kaldırıldı', {
+                    position: "top-right",
+                    autoClose: 500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             } else {
-                newBasket[ix].count = (newBasket[ix].count) - 1
+                newBasket[ix].count = (newBasket[ix].count) - 1;
+                toast.warning('Ürün çıkarıldı', {
+                    position: "top-right",
+                    autoClose: 500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+
+                if (!newBasket[ix].count) {
+                    toast.error('Ürün kaldırıldı', {
+                        position: "top-right",
+                        autoClose: 500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                }
             }
 
             setBasket([...newBasket]);
         }, 350);
 
     }
-
     const deleteBasket = (ix) => {
         let newBasket = basket;
         newBasket.splice(ix, 1);
         setBasket([...newBasket]);
-        toast.error('Ürün çıkarıldı', {
+        toast.error('Ürün kaldırıldı', {
             position: "top-right",
             autoClose: 500,
             hideProgressBar: false,
@@ -53,7 +88,6 @@ function BasketCard() {
     }
 
     return (<>
-
         {
             basket.map((item, index) => (
                 <div key={index} className="container">
@@ -76,17 +110,13 @@ function BasketCard() {
                             <button onClick={() => count(item.id)} className="bg-warning circle-button text-light">+</button>
                             <p className="mt-3 ms-2 me-2">{item.count}</p>
                             <button onClick={() => deleteCount(index)} className="bg-danger circle-button text-light">-</button>
-                            <button onClick={() => deleteBasket(index)} className="bg-danger border border-0 rounded-2 ms-2 text-light">Çıkar</button>
-                            
+                            <button onClick={() => deleteBasket(index)} className="bg-danger border border-0 rounded-2 ms-2 text-light">Kaldır</button>
+
                         </div>
                     </div>
                 </div>
-
             ))
         }
-
-
-
     </>);
 }
 
