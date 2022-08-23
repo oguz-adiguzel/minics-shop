@@ -8,9 +8,6 @@ import location from '../location.svg';
 import phone from '../phone.svg';
 import mail from '../mail.svg';
 
-
-
-
 function Home() {
 
     const { basket, setBasket } = useBasket;
@@ -44,7 +41,7 @@ function Home() {
             id: 4,
             name: 'Canon EF 50mm f/1.8 II Objektif',
             imgUrl: 'https://html.design/demo/minics/images/p4.png',
-            price: 2100,
+            price: 2115,
             point: '9.2',
             seller: 'Bimeks'
 
@@ -95,9 +92,6 @@ function Home() {
 
         }
     ]
-
-
-
     return (<>
 
         <Header />
@@ -109,8 +103,8 @@ function Home() {
             </div>
             <div className="row mt-5">
                 <div className="col-sm d-flex flex-column justify-content-center carousel">
-                    <h4 className="carousel-title">Welcome to our shop</h4>
-                    <p className="carousel-info text-secondary mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.</p>
+                    <h4 className="carousel-title">Mağazamıza hoş geldiniz</h4>
+                    <p className="carousel-info text-secondary mt-3">Türkiye'nin en uygun fiyat garantisi sunan ve en iyi kargo hizmeti veren sanal mağazasına hoşgeldiniz</p>
                     <button type="button" className="btn btn-warning p-2 read-more-button text-light mt-3">Read More</button>
                 </div>
                 <div className="col-sm d-flex justify-content-end">
@@ -119,7 +113,7 @@ function Home() {
             </div>
         </div>
         <div className="container mt-5 product">
-            <h4 className="text-center fw-bold product-title mt-5">Our Products</h4>
+            <h4 className="text-center fw-bold product-title mt-5">Ürünlerimiz</h4>
             <div className="row py-5 d-flex justify-content-between">
                 {
                     product.map((item, index) => (
@@ -132,7 +126,7 @@ function Home() {
         <div className="container-fluid article mt-5 h-auto">
             <div className="row d-flex justify-content-center">
                 <div className="col-sm article-left text-light d-flex flex-column justify-content-center align-items-center">
-                    <p className="article-left-title align-self-start">We Provide Best For You</p>
+                    <p className="article-left-title align-self-start">Sizin İçin En İyisini Sunuyoruz</p>
                     <p className="article-left-info">Totam architecto rem beatae veniam, cum officiis adipisci soluta perspiciatis ipsa, expedita maiores quae accusantium. Animi veniam aperiam, necessitatibus mollitia ipsum id optio ipsa odio ab facilis sit labore officia! Repellat expedita, deserunt eum soluta rem culpa. Aut, necessitatibus cumque. Voluptas consequuntur vitae aperiam animi sint earum, ex unde cupiditate, molestias dolore quos quas possimus eveniet facilis magnam? Vero, dicta.</p>
                 </div>
                 <div className="col-sm article-right">
@@ -144,31 +138,31 @@ function Home() {
         <div className="container mt-5 mb-5">
             <div className="row py-5">
                 <div className="col-12">
-                    <h5 className="text-center display-6 fw-bold">Why Choose Us</h5>
+                    <h5 className="text-center display-6 fw-bold">Neden Bizi Seçmelisiniz</h5>
                 </div>
             </div>
-            <div className="row">
+            <div className="row media-article-card">
                 <div className="col-sm border border-2 d-flex flex-column align-items-center p-4 me-4 article-card">
                     <img className="fast-delivery" src={fastDelivery} />
-                    <p className="fw-bold fs-5 mt-2">FAST DELİVERY</p>
-                    <p className="fs-5 text-center">variations of passages of Lorem Ipsum available</p>
+                    <p className="fw-bold fs-5 mt-2">HIZLI TESLİMAT</p>
+                    <p className="fs-5 text-center">Türkiye'nin her yerine 2 gün içinde teslimat</p>
                 </div>
                 <div className="col-sm border border-2 d-flex flex-column align-items-center p-4 me-4 article-card">
                     <img className="fast-delivery" src={shipping} />
-                    <p className="fw-bold fs-5 mt-2">FREE SHIPING</p>
-                    <p className="fs-5 text-center">variations of passages of Lorem Ipsum available</p>
+                    <p className="fw-bold fs-5 mt-2">ÜCRETSİZ KARGO</p>
+                    <p className="fs-5 text-center">Türkiye'nin her yerine ücretsiz ve hızlı kargo</p>
                 </div>
                 <div className="col-sm border border-2 d-flex flex-column align-items-center p-4 article-card">
                     <img className="fast-delivery" src={quality} />
-                    <p className="fw-bold fs-5 mt-2">BEST QUALITY</p>
-                    <p className="fs-5 text-center">variations of passages of Lorem Ipsum available</p>
+                    <p className="fw-bold fs-5 mt-2">EN İYİ KALİTE</p>
+                    <p className="fs-5 text-center">Tamamen orijinal ürün ve en iyi hizmet kalitesi</p>
                 </div>
             </div>
         </div>
 
         <div className="container-fluid footer text-light d-flex justify-content-center px-5">
             <div className="row">
-                <div className="col-sm p-4 me-5 d-flex justify-content-start">
+                <div className="col-sm p-4 me-5 d-flex justify-content-start media-footer-1">
                     <ul className="footer-ul">
                         <li>
                             <span className="footer-logo">Minics</span>
@@ -184,7 +178,7 @@ function Home() {
                         </li>
                     </ul>
                 </div>
-                <div className="col-sm py-4 me-5 d-flex align-items-start flex-column">
+                <div className="col-sm p-4 me-5 d-flex align-items-start flex-column media-footer-2">
                     <p className="fs-4">Information</p>
                     <p>Eligendi sunt, provident, debitis nemo, facilis cupiditate velit libero dolorum aperiam enim nulla iste maxime corrupti ad illo libero minus.</p>
                 </div>
@@ -198,7 +192,7 @@ function Home() {
                         <li>Testimonial</li>
                     </ul>
                 </div>
-                <div className="col-sm px-5 py-4 d-flex flex-column align-items-start">
+                <div className="col-sm py-4 px-3 d-flex flex-column align-items-start media-footer-4">
                     <p className="fs-4">Newsletter</p>
                     <input className="footer-input" placeholder="Enter your email" />
                     <div>

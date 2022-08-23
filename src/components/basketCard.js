@@ -1,39 +1,55 @@
 import { useBasket } from "../context/basketContext";
 import cargo from '../cargo.svg';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function BasketCard() {
 
     const { basket, setBasket } = useBasket();
 
     const count = (id) => {
-        let someProduct = basket.find(item => {
-            return item.id === id
-        })
-
-        if (someProduct) {
-            let newBasket = basket.map(item => {
-                return item.id === someProduct.id ? { ...item, count: item.count + 1 } : item
+        setTimeout(() => {
+            let someProduct = basket.find(item => {
+                return item.id === id
             })
-            setBasket([...newBasket]);
-        }
+
+            if (someProduct) {
+                let newBasket = basket.map(item => {
+                    return item.id === someProduct.id ? { ...item, count: item.count + 1 } : item
+                })
+                setBasket([...newBasket]);
+            }
+        }, 350);
+
     }
 
     const deleteCount = (ix) => {
-        let newBasket = basket;
-        if (newBasket[ix].count === 1) {
-            newBasket.splice(ix, 1);
-        } else {
-            newBasket[ix].count = (newBasket[ix].count) - 1
-        }
+        setTimeout(() => {
+            let newBasket = basket;
+            if (newBasket[ix].count === 1) {
+                newBasket.splice(ix, 1);
+            } else {
+                newBasket[ix].count = (newBasket[ix].count) - 1
+            }
 
-        setBasket([...newBasket]);
+            setBasket([...newBasket]);
+        }, 350);
+
     }
 
     const deleteBasket = (ix) => {
         let newBasket = basket;
         newBasket.splice(ix, 1);
         setBasket([...newBasket]);
+        toast.error('Ürün çıkarıldı', {
+            position: "top-right",
+            autoClose: 500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
     }
 
     return (<>
@@ -41,7 +57,6 @@ function BasketCard() {
         {
             basket.map((item, index) => (
                 <div key={index} className="container">
-
                     <div className="row mb-5 border border-2 rounded-4">
                         <div className="col-12 border-bottom py-2">
                             <span>Satıcı :</span> <span className="fw-bold">{item.seller}</span>
@@ -62,6 +77,7 @@ function BasketCard() {
                             <p className="mt-3 ms-2 me-2">{item.count}</p>
                             <button onClick={() => deleteCount(index)} className="bg-danger circle-button text-light">-</button>
                             <button onClick={() => deleteBasket(index)} className="bg-danger border border-0 rounded-2 ms-2 text-light">Çıkar</button>
+                            
                         </div>
                     </div>
                 </div>

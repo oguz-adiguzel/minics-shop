@@ -34,12 +34,6 @@ function Basket() {
           
         }
     
-
-
-
-
-
-
     return (<>
         <Header />
         <div className="container mt-5 py-5">
