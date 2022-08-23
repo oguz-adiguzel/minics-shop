@@ -90,7 +90,7 @@ function Basket() {
         </div>
 
         <div className="row d-flex justify-content-center">
-        {basket.length === 0 && <h5 className="text-center fs-2 my-5">Sizin İçin Seçtiklerimiz</h5>}
+        {basket.length === 0 && <h5 className="text-center fs-3 my-5">Sizin İçin Seçtiklerimiz</h5>}
             {basket.length === 0 && recommendedProducts.map((item, index) => (
                 <div key={index} className="col-sm-2 border-0 card mt-3 mb-5">
                     <div className="overlay ">
