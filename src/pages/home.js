@@ -15,7 +15,7 @@ function Home() {
             imgUrl: 'https://html.design/demo/minics/images/p1.png',
             price: 7849,
             point: '9',
-            seller: 'Minics'
+            seller: 'Minics',
         },
         {
             id: 2,
