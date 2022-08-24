@@ -3,12 +3,12 @@ import cargo from '../cargo.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function BasketCard({catchId}) {
+function BasketCard() {
     const { basket, setBasket } = useBasket();
     const count = (id) => {
         setTimeout(() => {
             let someProduct = basket.find(item => {
-                return item.id === id || catchId
+                return item.id === id
             })
 
             if (someProduct) {

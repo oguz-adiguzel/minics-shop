@@ -1,6 +1,5 @@
 import Header from "../components/header";
 import ProductCard from "../components/productCard";
-import { useBasket } from "../context/basketContext";
 import fastDelivery from '../fast-delivery.svg';
 import shipping from '../shipping.svg';
 import quality from '../quality.svg';
@@ -9,9 +8,6 @@ import phone from '../phone.svg';
 import mail from '../mail.svg';
 
 function Home() {
-
-    const { basket, setBasket } = useBasket;
-
     const product = [
         {
             id: 1,
@@ -112,6 +108,7 @@ function Home() {
                 </div>
             </div>
         </div>
+        
         <div className="container mt-5 product">
             <h4 className="text-center fw-bold product-title mt-5">Ürünlerimiz</h4>
             <div className="row py-5 d-flex justify-content-between">
@@ -201,7 +198,6 @@ function Home() {
                 </div>
             </div>
         </div>
-
     </>);
 }
 

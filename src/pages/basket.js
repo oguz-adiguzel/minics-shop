@@ -1,11 +1,11 @@
 import BasketCard from "../components/basketCard";
 import Header from "../components/header";
-import { useBasket } from "../context/basketContext";
+import { useBasket } from "../context/basketContext"  ;
 import { useNavigate } from "react-router-dom";
 
 function Basket() {
 
-    const recommendedProducts = [
+    const product = [
         {
             id: 1,
             name: 'Canon EOS 550D',
@@ -32,12 +32,10 @@ function Basket() {
 
         }
     ]
+
     const { basket, setBasket } = useBasket();
-
     const navigate = useNavigate();
-
     let discount1 = false;
-
     const complete = () => {
         alert('Siparişiniz Alınmıştır');
         navigate('/')
@@ -47,8 +45,6 @@ function Basket() {
 
     let total = basket.reduce((acc, product) => acc + (product.price * product.count), 0)
 
-
-
     if (total > 10000) {
         let newTotal = (total * 5) / 100;
         total = total - newTotal;
@@ -57,16 +53,13 @@ function Basket() {
     }
     else {
         discount1 = false;
-
     }
 
     return (<>
-
         <Header />
         <div className="container mt-5 py-5">
             <h5 className="basket-title mt-5">Sepetim ({basket.length} Ürün)</h5>
         </div>
-
         <div className="container">
             <div className="row">
                 {basket.length === 0 && <div className="col-sm-12 d-flex flex-column align-items-center py-5">
@@ -87,7 +80,7 @@ function Basket() {
                     <button onClick={complete} className="basket-button mb-5">Alışverişi Tamamla</button>
                     {
                         basket.map((item, index) => (
-                            <p key={index}>{item.name}</p>
+                            <p className="basket-product-name" key={index}>{item.name}</p>
                         ))
                     }
                 </div>
@@ -97,7 +90,7 @@ function Basket() {
 
         <div className="row d-flex justify-content-center">
             {basket.length === 0 && <h5 className="text-center fw-bold fs-2 my-5">Sizin İçin Seçtiklerimiz</h5>}
-            {basket.length === 0 && recommendedProducts.map((item, index) => (
+            {basket.length === 0 && product.map((item, index) => (
                 <div key={index} className="col-sm-2 border-0 card mt-3 mb-5">
                     <div className="overlay ">
                         <button type="button" className="overlay-button me-1">Sepete Ekle</button>
@@ -114,7 +107,6 @@ function Basket() {
 
             ))}
         </div>
-
     </>);
 }
 

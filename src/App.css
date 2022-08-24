@@ -292,7 +292,7 @@
     }
   }
 
-  @media (min-width: 577px) and (max-width: 800px){
+  @media (min-width: 577px) and (max-width: 992px){
     .product-img{
       width: 150px;
   }
@@ -317,6 +317,23 @@
     background-color: var(--purple);
     display: flex;
     align-items: center;
+  }
+  /* .basket-media{
+    display: flex;
+    flex-direction: column;
+  } */
+  .basket-button{
+    font-size: .6rem;
+    padding: 5px;
+  }
+  .basket-total{
+    font-size: 1.3rem;
+  }
+  .basket-total-title{
+    font-size: .9rem;
+  }
+  .basket-product-name{
+    font-size: .8rem;
   }
   
   }
