@@ -55,21 +55,22 @@ function Header() {
                 <li className="nav-item"><a className="nav-link" href="#/">Product</a></li>
                 <li className="nav-item"><a className="nav-link" href="#/">Why Us</a></li>
                 <li className="nav-item"><a className="nav-link" href="#/">Testimonial</a></li> */}
-                <li className="nav-item"><div className="dropdown">
-                    <button className="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Sepetim - {basket.reduce((acc, item) => acc + (item.count), 0)}
-                    </button>
-                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        {
-                            basket.map((item, index) => (
-                                <li key={index} className='d-flex mt-2 align-items-center'><a className="dropdown-item" href="#/"><img className='basket-img me-2' src={item.imgUrl} />{item.name} - {item.price} TL - {item.count} Adet</a><button onClick={() => deleteBasket(index)} className='btn btn-sm btn-danger ms-5 me-3'>X</button></li>
-                            ))
-                        }
-                        <li><hr className="dropdown-divider" /></li>
-                        <li><a className="dropdown-item" href="#/">Toplam - {basket.reduce((acc, product) => acc + (product.price * product.count), 0)} TL</a></li>
-                        <li className='d-flex justify-content-center'><button onClick={() => navigate('/basket')} className='btn btn-warning me-1'>Sepete Git</button><button onClick={deleteAllBasket} className='btn btn-danger ms-1'>Sepeti Boşalt</button></li>
-                    </ul>
-                </div></li>
+                <li className="nav-item">
+                    <div className="dropdown drop-position">
+                        <button className="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sepetim - {basket.reduce((acc, item) => acc + (item.count), 0)}
+                        </button>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            {
+                                basket.map((item, index) => (
+                                    <li key={index} className='d-flex mt-2 align-items-center basket-drop-media'><a className="dropdown-item basket-drop-media" href="#/"><img className='basket-img me-2' src={item.imgUrl} />{item.name} - {item.price} TL - {item.count} Adet</a><button onClick={() => deleteBasket(index)} className='btn btn-sm btn-danger ms-5 me-3'>X</button></li>
+                                ))
+                            }
+                            <li><hr className="dropdown-divider" /></li>
+                            <li><a className="dropdown-item" href="#/">Toplam - {basket.reduce((acc, product) => acc + (product.price * product.count), 0)} TL</a></li>
+                            <li className='d-flex justify-content-center'><button onClick={() => navigate('/basket')} className='btn btn-warning me-1'>Sepete Git</button><button onClick={deleteAllBasket} className='btn btn-danger ms-1'>Sepeti Boşalt</button></li>
+                        </ul>
+                    </div></li>
             </ul>
         </div>
 

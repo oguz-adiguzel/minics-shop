@@ -280,6 +280,11 @@
       margin: 0;
       
     }
+    .basket-drop-media{
+      flex-direction: column;
+      width: 350px;
+    }
+    
   }
 
   @media (min-width: 577px) and (max-width: 992px){
