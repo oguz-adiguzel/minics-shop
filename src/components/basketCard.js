@@ -2,6 +2,8 @@ import { useBasket } from "../context/basketContext";
 import cargo from '../cargo.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {  FormattedNumber } from "react-intl";
+
 
 function BasketCard() {
     const { basket, setBasket } = useBasket();
@@ -27,7 +29,6 @@ function BasketCard() {
                 });
             }
         }, 350);
-
     }
     const deleteCount = (ix) => {
         setTimeout(() => {
@@ -70,7 +71,6 @@ function BasketCard() {
 
             setBasket([...newBasket]);
         }, 350);
-
     }
     const deleteBasket = (ix) => {
         let newBasket = basket;
@@ -104,7 +104,7 @@ function BasketCard() {
                         </div>
                         <div className="col-sm mt-4 mb-4">
                             <p className="card-product-name">{item.name}</p>
-                            <p className="card-product-name text-danger">{item.price} TL</p>
+                            <p className="card-product-name text-danger"><FormattedNumber value={item.price} style={`currency`} currency="TRY" /></p>
                         </div>
                         <div className="col-sm d-flex align-items-center mt-4 mb-4 justify-content-start">
                             <button onClick={() => count(item.id)} className="bg-warning circle-button text-light">+</button>

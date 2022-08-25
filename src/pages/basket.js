@@ -1,11 +1,11 @@
 import BasketCard from "../components/basketCard";
 import Header from "../components/header";
-import { useBasket } from "../context/basketContext"  ;
+import { useBasket } from "../context/basketContext";
 import { useNavigate } from "react-router-dom";
+import {  FormattedNumber } from "react-intl";
 
 function Basket() {
-
-    const product = [
+    const recommendedproducts = [
         {
             id: 1,
             name: 'Canon EOS 550D',
@@ -32,14 +32,28 @@ function Basket() {
 
         }
     ]
-
     const { basket, setBasket } = useBasket();
     const navigate = useNavigate();
     let discount1 = false;
+    const addToCart = (id) => {
+        let addedProduct = basket.find(item => {
+            return item.id === id
+        })
+        if (!addedProduct) {
+            let n = recommendedproducts.find(item => {
+                return item.id === id
+            })
+            setBasket([...basket, { ...n, count: 1 }]);
+        } else {
+            let c = basket.map(current => {
+                return current.id === addedProduct.id ? { ...current, count: current.count + 1 } : current
+            })
+            setBasket([...basket, c]);
+        }
+    }
     const complete = () => {
         alert('Siparişiniz Alınmıştır');
         navigate('/')
-
         setBasket([]);
     }
 
@@ -49,12 +63,10 @@ function Basket() {
         let newTotal = (total * 5) / 100;
         total = total - newTotal;
         discount1 = true;
-
     }
     else {
         discount1 = false;
     }
-
     return (<>
         <Header />
         <div className="container mt-5 py-5">
@@ -69,11 +81,10 @@ function Basket() {
                 </div>}
                 <div className="col-sm-10">
                     <BasketCard />
-
                 </div>
                 {basket.length > 0 && <div className="col-sm-2 border border-2 rounded-4 py-3 h-75 ">
                     <p className="basket-total-title ">SEÇİLEN ÜRÜNLER ({basket.reduce((acc, item) => acc + (item.count), 0)})</p>
-                    <p className="basket-total ">{total} TL</p>
+                    <p className="basket-total "><FormattedNumber value={total} style={`currency`} currency="TRY" /></p>
                     {
                         discount1 && <p className="text-success">%5 indirim uygulandı</p>
                     }
@@ -87,24 +98,22 @@ function Basket() {
                 }
             </div>
         </div>
-
         <div className="row d-flex justify-content-center">
             {basket.length === 0 && <h5 className="text-center fw-bold fs-2 my-5">Sizin İçin Seçtiklerimiz</h5>}
-            {basket.length === 0 && product.map((item, index) => (
+            {basket.length === 0 && recommendedproducts.map((item, index) => (
                 <div key={index} className="col-sm-2 border-0 card mt-3 mb-5">
                     <div className="overlay ">
-                        <button type="button" className="overlay-button me-1">Sepete Ekle</button>
+                        <button type="button" className="overlay-button me-1" onClick={() => addToCart(item.id)}>Sepete Ekle</button>
                     </div>
                     <div className="card-img d-flex justify-content-center align-items-center">
                         <img className="product-img" src={item.imgUrl} />
                     </div>
                     <p className="cart-title fw-bold mt-2">{item.name}</p>
                     <div className="d-flex justify-content-between">
-                        <p className="card-price">{item.price} TL</p>
+                        <p className="card-price"><FormattedNumber value={item.price} style={`currency`} currency="TRY" /></p>
                         <p className="card-point">{item.point}/10</p>
                     </div>
                 </div>
-
             ))}
         </div>
     </>);

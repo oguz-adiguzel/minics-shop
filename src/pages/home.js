@@ -8,7 +8,7 @@ import phone from '../phone.svg';
 import mail from '../mail.svg';
 
 function Home() {
-    const product = [
+    const products = [
         {
             id: 1,
             name: 'Canon EOS 550D',
@@ -89,7 +89,6 @@ function Home() {
         }
     ]
     return (<>
-
         <Header />
         <div className="container carousel mt-5 py-5">
             <div className="row">
@@ -108,12 +107,12 @@ function Home() {
                 </div>
             </div>
         </div>
-        
+    
         <div className="container mt-5 product">
             <h4 className="text-center fw-bold product-title mt-5">Ürünlerimiz</h4>
             <div className="row py-5 d-flex justify-content-between">
                 {
-                    product.map((item, index) => (
+                    products.map((item, index) => (
                         <ProductCard key={index} product={item} />
                     ))
                 }

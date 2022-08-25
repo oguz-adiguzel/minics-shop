@@ -121,7 +121,7 @@
     color: var(--orange);
 }
 .basket-total{
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
 }
 .basket-button{

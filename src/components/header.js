@@ -4,6 +4,8 @@ import 'font-awesome/css/font-awesome.min.css';
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {  FormattedNumber } from "react-intl";
+
 
 function Header() {
 
@@ -67,7 +69,7 @@ function Header() {
                                 ))
                             }
                             <li><hr className="dropdown-divider" /></li>
-                            <li><a className="dropdown-item" href="#/">Toplam - {basket.reduce((acc, product) => acc + (product.price * product.count), 0)} TL</a></li>
+                            <li><a className="dropdown-item" href="#/">Toplam - <FormattedNumber value={ basket.reduce((acc, product) => acc + (product.price * product.count), 0)} style={`currency`} currency="TRY" /> TL</a></li>
                             <li className='d-flex justify-content-center'><button onClick={() => navigate('/basket')} className='btn btn-warning me-1'>Sepete Git</button><button onClick={deleteAllBasket} className='btn btn-danger ms-1'>Sepeti Boşalt</button></li>
                         </ul>
                     </div></li>

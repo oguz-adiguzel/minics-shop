@@ -1,6 +1,7 @@
 import { useBasket } from "../context/basketContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {  FormattedNumber } from "react-intl";
 
 function ProductCard({ product }) {
     const { id, name, imgUrl, price, point } = product;
@@ -32,7 +33,7 @@ function ProductCard({ product }) {
     return (<>
         <div className="col-sm-4 border-0 card mt-3">
             <div className="overlay ">
-                <button onClick={addBasket} type="button" className="overlay-button me-1">Sepete Ekle</button>
+                <button onClick={addBasket  } type="button" className="overlay-button me-1">Sepete Ekle</button>
             </div>
             <div className="card-img d-flex justify-content-center align-items-center">
                 <img className="product-img" src={imgUrl} />
@@ -40,7 +41,7 @@ function ProductCard({ product }) {
             </div>
             <p className="cart-title fw-bold mt-2">{name}</p>
             <div className="d-flex justify-content-between">
-                <p className="card-price">{price} TL</p>
+                <p className="card-price"><FormattedNumber value={price} style={`currency`} currency="TRY" /></p>
                 <p className="card-point">{point}/10</p>
             </div>
         </div>
