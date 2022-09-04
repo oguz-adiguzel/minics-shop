@@ -60,7 +60,7 @@ function Header() {
                 <li className="nav-item">
                     <div className="dropdown drop-position">
                         <button className="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            Sepetim - {basket.reduce((acc, item) => acc + (item.count), 0)}
+                            Sepetim  <span class="badge bg-secondary">{basket.reduce((acc, item) => acc + (item.count), 0)}</span> 
                         </button>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             {
